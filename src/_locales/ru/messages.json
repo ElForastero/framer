@@ -1,0 +1,41 @@
+{
+  "greeting": {
+    "message": "Привет, Мир!"
+  },
+  "appName": {
+    "message": "Бойлерплейт для расширения",
+    "description": "Название расширения для магазина расширений."
+  },
+  "appShortName": {
+    "message": "Ext",
+    "description": "Короткая (рекомендовано максимум 12 символов) версия названия расширения."
+  },
+  "appDesc": {
+    "message": "Это расширение делает что-то крутое.",
+    "description": "Описание расширения, отображаемое в магазине расширений."
+  },
+  "placeholder": {
+    "message": "Что вы собираетесь сделать?",
+    "description": "Placeholder в инпуте"
+  },
+  "deleteConfirmation": {
+    "message": "Вы действительно хотите удалить все?",
+    "description": "Сообщение в окне подтверждения"
+  },
+  "deleteAll": {
+    "message": "Удалить все",
+    "description": "Текст на кнопке"
+  },
+  "showDone": {
+    "message": "Показать все",
+    "description": "Текст на кнопке"
+  },
+  "hideDone": {
+    "message": "В процессе",
+    "description": "Текст на кнопке"
+  },
+  "cancel": {
+    "message": "Отмена",
+    "description": "Текст на кнопке"
+  }
+}
