@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './options.module.css';
 import Example from 'components/Example';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  font-size: 18px;
+  color: var(--my-ext-color-primary);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+`;
 
 const OptionsPage = () => (
-  <div styleName="container">
+  <Wrapper>
     <Example />
-  </div>
+  </Wrapper>
 );
 
 const root = document.createElement('div');

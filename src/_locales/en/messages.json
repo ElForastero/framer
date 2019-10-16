@@ -13,5 +13,29 @@
   "appDesc": {
     "message": "This app does something awesome.",
     "description": "The description of the application, displayed in the web store."
+  },
+  "placeholder": {
+    "message": "What are you going to do?",
+    "description": "Input placeholder"
+  },
+  "deleteAll": {
+    "message": "Delete all",
+    "description": "Text on button"
+  },
+  "deleteConfirmation": {
+    "message": "Are you sure you want to delete all items?",
+    "description": "Message in the confirmation dialog"
+  },
+  "showDone": {
+    "message": "Show done",
+    "description": "Text on button"
+  },
+  "hideDone": {
+    "message": "Hide done",
+    "description": "Text on button"
+  },
+  "cancel": {
+    "message": "Cancel",
+    "description": "Text on button"
   }
 }

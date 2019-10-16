@@ -59,6 +59,7 @@ Builds the extension in production mode.
 
 ## 💻 Useful links
 
+- [Webpack Extension Reloader](https://github.com/rubenspgcavalcante/webpack-extension-reloader)
 - [Manifest File Format](https://developer.chrome.com/apps/manifest)
 - [Content Security Policy (CSP)](https://developer.chrome.com/extensions/contentSecurityPolicy)
 - [Chrome i18n](https://developer.chrome.com/extensions/i18n)
