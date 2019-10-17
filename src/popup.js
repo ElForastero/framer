@@ -1,8 +1,9 @@
 import 'libs/polyfills';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import theme from 'theme/light';
+import { createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from 'context/Theme';
+import { OptionsProvider } from 'context/Options';
 import { TodoProvider } from 'context/Todo';
 import Todo from 'components/Todo';
 import TodoContainer from 'components/TodoContainer';
@@ -17,14 +18,16 @@ const GlobalStyle = createGlobalStyle`
 
 const Popup = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <TodoProvider>
-        <TodoContainer>
-          <Todo />
-        </TodoContainer>
-      </TodoProvider>
-    </ThemeProvider>
+    <OptionsProvider>
+      <ThemeProvider>
+        <GlobalStyle />
+        <TodoProvider>
+          <TodoContainer>
+            <Todo />
+          </TodoContainer>
+        </TodoProvider>
+      </ThemeProvider>
+    </OptionsProvider>
   );
 };
 

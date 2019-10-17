@@ -37,6 +37,7 @@
     "preact": "^10.0.0",
     "preact-shadow-root": "^1.0.2",
     "prop-types": "^15.7.2",
+    "react-switch": "^5.0.1",
     "regenerator-runtime": "^0.13.3",
     "styled-components": "^4.4.0",
     "styled-system": "^5.1.2",

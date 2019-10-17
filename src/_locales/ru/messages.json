@@ -37,5 +37,9 @@
   "cancel": {
     "message": "Отмена",
     "description": "Текст на кнопке"
+  },
+  "darkMode": {
+    "message": "Темная тема",
+    "descriptions": "Пункт настроек"
   }
 }

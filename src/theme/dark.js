@@ -3,7 +3,7 @@ import config from './config';
 export default {
   ...config,
   palette: {
-    primary: '#2196F3',
+    primary: '#455A64',
     secondary: '#FFFFFF',
     success: '#4CAF50',
     neutral: '#BDBDBD',

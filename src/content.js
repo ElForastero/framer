@@ -1,20 +1,22 @@
 import 'libs/polyfills';
 import React, { useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import styled, { StyleSheetManager, ThemeProvider, createGlobalStyle } from 'styled-components';
-import browser from 'webextension-polyfill';
-import theme from 'theme/light';
+import styled, { StyleSheetManager, createGlobalStyle } from 'styled-components';
+import globalStyle from 'assets/styles/global';
+import { OptionsProvider } from 'context/Options';
+import { ThemeProvider } from 'context/Theme';
 import useClickOutside from 'use-click-outside';
 import PlusButton from 'components/PlusButton';
 import TodoContainer from 'components/TodoContainer';
 import Todo from 'components/Todo';
 import { TodoProvider } from 'context/Todo';
 import usePressOnEsc from 'hooks/usePressOnEsc';
+import Box from 'components/Box';
+import { layer1, layer2 } from 'constants/layers';
 
 const GlobalStyle = createGlobalStyle`
   :host {
-    font-size: 16px;
-    box-sizing: border-box;
+    ${globalStyle}
   }
 `;
 
@@ -29,20 +31,14 @@ shadow.appendChild(appContainer);
 
 document.body.appendChild(root);
 
-const FixedPlusButton = styled(PlusButton)`
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-`;
-
 const FixedTodoContainer = styled(TodoContainer)`
   position: fixed;
   top: 0;
   right: 0;
   transform: ${props => (props.active ? 'translateX(0)' : 'translateX(100%)')};
   transition: transform 0.2s ease-in-out;
-  z-index: 999;
+  z-index: ${layer1};
+  box-shadow: ${props => (props.active ? '0 0 15px 10px rgba(0,0,0,.1)' : 'none')};
 `;
 
 const App = () => {
@@ -53,15 +49,19 @@ const App = () => {
 
   return (
     <StyleSheetManager target={styleContainer}>
-      <ThemeProvider theme={theme}>
-        <TodoProvider>
-          <GlobalStyle />
-          <FixedPlusButton onClick={() => toggle(!isActive)} />
-          <FixedTodoContainer active={isActive} ref={ref}>
-            <Todo />
-          </FixedTodoContainer>
-        </TodoProvider>
-      </ThemeProvider>
+      <OptionsProvider>
+        <ThemeProvider>
+          <TodoProvider>
+            <GlobalStyle />
+            <Box position="fixed" bottom="20px" right="20px" zIndex={layer1}>
+              <PlusButton onClick={() => toggle(!isActive)} />
+            </Box>
+            <FixedTodoContainer active={isActive} ref={ref}>
+              <Todo />
+            </FixedTodoContainer>
+          </TodoProvider>
+        </ThemeProvider>
+      </OptionsProvider>
     </StyleSheetManager>
   );
 };
