@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import browser from 'webextension-polyfill';
 
 const defaultOptions = {
+  buttonSize: 'large',
   darkMode: false,
 };
 
@@ -36,6 +37,4 @@ const OptionsProvider = ({ children }) => {
   return <OptionsContext.Provider value={[state, setState]}>{children}</OptionsContext.Provider>;
 };
 
-const OptionsConsumer = OptionsContext.Consumer;
-
-export { OptionsProvider, OptionsContext, OptionsConsumer };
+export { OptionsProvider, OptionsContext };

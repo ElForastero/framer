@@ -6,13 +6,12 @@ import globalStyle from 'assets/styles/global';
 import { OptionsProvider } from 'context/Options';
 import { ThemeProvider } from 'context/Theme';
 import useClickOutside from 'use-click-outside';
-import PlusButton from 'components/PlusButton';
+import FixedPlusButton from 'components/FixedPlusButton';
 import TodoContainer from 'components/TodoContainer';
 import Todo from 'components/Todo';
 import { TodoProvider } from 'context/Todo';
 import usePressOnEsc from 'hooks/usePressOnEsc';
-import Box from 'components/Box';
-import { layer1, layer2 } from 'constants/layers';
+import { layer1 } from 'constants/layers';
 
 const GlobalStyle = createGlobalStyle`
   :host {
@@ -53,9 +52,7 @@ const App = () => {
         <ThemeProvider>
           <TodoProvider>
             <GlobalStyle />
-            <Box position="fixed" bottom="20px" right="20px" zIndex={layer1}>
-              <PlusButton onClick={() => toggle(!isActive)} />
-            </Box>
+            <FixedPlusButton onClick={() => toggle(!isActive)} />
             <FixedTodoContainer active={isActive} ref={ref}>
               <Todo />
             </FixedTodoContainer>
