@@ -9,7 +9,14 @@ import Button from 'components/Button';
 import Control from 'components/Control';
 import Box from 'components/Box';
 import Dialog from 'components/Dialog';
-import { TodoContext, ADD_TODO, REMOVE_TODO, REMOVE_ALL, TOGGLE_DONE } from 'context/Todo';
+import {
+  TodoContext,
+  ADD_TODO,
+  REMOVE_TODO,
+  UPDATE_TODO,
+  REMOVE_ALL,
+  TOGGLE_DONE,
+} from 'context/Todo';
 import TrashIcon from 'assets/icons/trash.svg';
 import TrashIcon2 from 'assets/icons/trash-2.svg';
 import EyeIcon from 'assets/icons/eye.svg';
@@ -38,6 +45,7 @@ export default () => {
       setValue('');
     }
   };
+  const updateItem = payload => dispatch({ type: UPDATE_TODO, payload });
 
   const groupedItems = groupItemsByDate(items, hideDone);
 
@@ -59,11 +67,11 @@ export default () => {
               <DateLabel>{date}</DateLabel>
             </Box>
             {groupedItems[date].map(({ id, text, isDone }) => (
-              <Item key={id} done={isDone}>
-                <Box flexShrink="0" height="100%" mr={2}>
+              <Item key={id}>
+                <Box display="flex" alignItems="center" flexShrink="0" height="100%" mr={2}>
                   <Checkbox checked={isDone} onChange={markAsDone(id)} />
                 </Box>
-                <Text title={text}>{text}</Text>
+                <Text done={isDone} id={id} title={text} value={text} update={updateItem} />
                 <Control onClick={removeItem(id)}>
                   <TrashIcon />
                 </Control>
@@ -72,21 +80,23 @@ export default () => {
           </Fragment>
         ))}
       </Box>
-      {items.length > 0 && (
-        <Box display="flex" flexShrink="0" mt={2}>
-          <Button onClick={() => toggleDialog(true)}>
-            <TrashIcon2 />
-          </Button>
-          <Box width={3} flexShrink={0} />
-          <Button onClick={() => toggleDone(!hideDone)}>
-            {hideDone ? <EyeOffIcon /> : <EyeIcon />}
-          </Button>
-          <Box width={3} flexShrink={0} />
-          <Button onClick={() => browser.runtime.sendMessage({ greeting: 'showOptionsPage' })}>
-            <SettingsIcon />
-          </Button>
-        </Box>
-      )}
+      <Box display="flex" flexShrink="0" mt={2}>
+        {items.length > 0 && (
+          <Fragment>
+            <Button onClick={() => toggleDialog(true)}>
+              <TrashIcon2 />
+            </Button>
+            <Box width={3} flexShrink={0} />
+            <Button onClick={() => toggleDone(!hideDone)}>
+              {hideDone ? <EyeOffIcon /> : <EyeIcon />}
+            </Button>
+            <Box width={3} flexShrink={0} />
+          </Fragment>
+        )}
+        <Button onClick={() => browser.runtime.sendMessage({ greeting: 'showOptionsPage' })}>
+          <SettingsIcon />
+        </Button>
+      </Box>
       {showDialog && (
         <Dialog open={showDialog}>
           {browser.i18n.getMessage('deleteConfirmation')}

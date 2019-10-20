@@ -13,6 +13,13 @@ const OptionsProvider = ({ children }) => {
   const [state, setState] = useState(defaultOptions);
   const initRef = useRef(false);
 
+  // Initialize the list with saved items or with initial data
+  useEffect(async () => {
+    const { options } = await browser.storage.sync.get({ options: defaultOptions });
+    setState(options);
+    initRef.current = true;
+  }, []);
+
   // Sync with storage
   useEffect(() => {
     if (initRef.current) {
@@ -25,13 +32,6 @@ const OptionsProvider = ({ children }) => {
     browser.storage.onChanged.addListener(changes => {
       if (changes.options) setState(changes.options.newValue);
     });
-  }, []);
-
-  // Initialize the list with saved items or with initial data
-  useEffect(async () => {
-    const { options } = await browser.storage.sync.get({ options: defaultOptions });
-    setState(options);
-    initRef.current = true;
   }, []);
 
   return <OptionsContext.Provider value={[state, setState]}>{children}</OptionsContext.Provider>;

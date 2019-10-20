@@ -4,6 +4,7 @@ import getStubData from './getStubData';
 
 export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
+export const UPDATE_TODO = 'UPDATE_TODO';
 export const TOGGLE_DONE = 'TOGGLE_DONE';
 export const REMOVE_ALL = 'REMOVE_ALL';
 export const INIT = 'INIT';
@@ -26,6 +27,14 @@ const reducer = (state, { payload, type }) => {
       ];
     case REMOVE_TODO:
       return state.filter(({ id }) => id !== payload);
+    case UPDATE_TODO:
+      return state.map(item => {
+        if (item.id === payload.id) {
+          return { ...item, text: payload.text };
+        }
+
+        return item;
+      });
     case TOGGLE_DONE:
       return state.map(item => {
         if (item.id === payload) {

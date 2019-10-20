@@ -37,6 +37,22 @@
   },
   "darkMode": {
     "message": "Темная тема",
-    "descriptions": "Пункт настроек"
+    "description": "Пункт настроек"
+  },
+  "buttonSize": {
+    "message": "Размер кнопки",
+    "description": "Пункт настроек"
+  },
+  "small": {
+    "message": "Маленькая",
+    "description": "Вариант размера кнопки"
+  },
+  "medium": {
+    "message": "Средняя",
+    "description": "Вариант размера кнопки"
+  },
+  "large": {
+    "message": "Большая",
+    "description": "Вариант размера кнопки"
   }
 }
