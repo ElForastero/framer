@@ -15,6 +15,7 @@ import { layer1 } from 'constants/layers';
 
 const GlobalStyle = createGlobalStyle`
   :host {
+    all: initial;
     ${globalStyle}
   }
 `;

@@ -31,6 +31,7 @@ const FixedPlusButton = props => {
     left: `calc(100% - ${radius * 2}px)`,
     top: `calc(100% - ${radius * 2}px)`,
     transform: `translate3d(${-x}px, ${-y}px, 0)`,
+    visibility: !!position.x ? 'visible' : 'hidden',
   };
 
   // Hide icon in fullscreen

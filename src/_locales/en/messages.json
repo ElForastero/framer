@@ -37,6 +37,22 @@
   },
   "darkMode": {
     "message": "Dark mode",
-    "descriptions": "Dark mode settings label"
+    "description": "Dark mode settings label"
+  },
+  "buttonSize": {
+    "message": "Button size",
+    "description": "Button size settings label"
+  },
+  "small": {
+    "message": "Small",
+    "description": "Button size option"
+  },
+  "medium": {
+    "message": "Medium",
+    "description": "Button size option"
+  },
+  "large": {
+    "message": "Large",
+    "description": "Button size option"
   }
 }

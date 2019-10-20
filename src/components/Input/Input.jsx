@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 import styled from 'styled-components';
 import useAutoFocus from 'hooks/useAutoFocus';
 
@@ -22,11 +22,12 @@ const BaseInput = styled.input`
   }
 `;
 
-const Input = props => {
-  const ref = useRef(null);
-  useAutoFocus(ref);
+const Input = (props, ref) => {
+  const inputRef = useRef(null);
+  useImperativeHandle(ref, () => inputRef.current);
+  useAutoFocus(inputRef);
 
-  return <BaseInput {...props} ref={ref} />;
+  return <BaseInput {...props} ref={inputRef} />;
 };
 
-export default Input;
+export default forwardRef(Input);

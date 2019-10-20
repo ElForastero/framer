@@ -20,7 +20,7 @@ const OptionsForm = () => {
         />
       </Box>
       <Box display="flex" flexDirection="column" mt={3}>
-        Button size:
+        {browser.i18n.getMessage('buttonSize')}:
         <Box as="label" display="flex" mt={2} ml={2} mb={1}>
           <Box display="flex" alignItems="center" mr={2}>
             <Radio
@@ -30,7 +30,7 @@ const OptionsForm = () => {
               onChange={updateButtonSize}
             />
           </Box>
-          Small
+          {browser.i18n.getMessage('small')}
         </Box>
         <Box as="label" display="flex" ml={2} mb={1}>
           <Box display="flex" alignItems="center" mr={2}>
@@ -41,7 +41,7 @@ const OptionsForm = () => {
               onChange={updateButtonSize}
             />
           </Box>
-          Medium
+          {browser.i18n.getMessage('medium')}
         </Box>
         <Box as="label" display="flex" ml={2} mb={1}>
           <Box display="flex" alignItems="center" mr={2}>
@@ -52,7 +52,7 @@ const OptionsForm = () => {
               onChange={updateButtonSize}
             />
           </Box>
-          Large
+          {browser.i18n.getMessage('large')}
         </Box>
       </Box>
     </Fragment>
