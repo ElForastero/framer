@@ -5399,10 +5399,10 @@ webpack-log@^2.0.0:
     ansi-colors "^3.0.0"
     uuid "^3.3.2"
 
-webpack-manifest-version-sync-plugin@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/webpack-manifest-version-sync-plugin/-/webpack-manifest-version-sync-plugin-0.0.1.tgz#5727f56b499708824bb81811f72073485c752368"
-  integrity sha512-82iX5ebChalKmQVkULSZV7dYwa/uLibWRss3q6gk8sdPzfQgqQFtJ6wLsIqnGff1hvyH5GL0AK47EKlZv9hRmQ==
+webpack-manifest-version-sync-plugin@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/webpack-manifest-version-sync-plugin/-/webpack-manifest-version-sync-plugin-0.0.2.tgz#8db343e442eff91a67121e500ae97f3eeb3af655"
+  integrity sha512-0Dj/PyTlfkR0kGjLojmq4oOwSZWchrs6B9iV6EM6Trwip+b9usHbB7BkMD7sfjGfJcKSIN2EOSZ2EWUcYpTDWw==
 
 webpack-sources@^1.0.1, webpack-sources@^1.4.0, webpack-sources@^1.4.1:
   version "1.4.3"
